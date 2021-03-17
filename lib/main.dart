@@ -30,41 +30,39 @@ class _ImplicitlyAnimationState extends State<ImplicitlyAnimation> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        padding: EdgeInsets.all(20),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            AnimatedContainer(
-              duration: Duration(seconds: 2),
-              alignment: Alignment.center,
-              color: Colors.black,
-              width: status ? 300 : 0,
-              height: 200,
-              child: Text(
-                "Ricarth Lima",
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 28,
-                ),
+        body: Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          AnimatedContainer(
+            duration: Duration(seconds: 2),
+            alignment: Alignment.center,
+            curve: Curves.fastOutSlowIn,
+            color: Colors.black,
+            width: status ? 300 : 0,
+            height: 200,
+            child: Text(
+              "Ricarth Lima",
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 28,
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.only(top: 8.0),
-              child: ElevatedButton(
-                onPressed: () {
-                  setState(() {
-                    status = !status;
-                    print(status);
-                  });
-                },
-                child: Text("Do it!"),
-              ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(top: 8.0),
+            child: ElevatedButton(
+              onPressed: () {
+                setState(() {
+                  status = !status;
+                  print(status);
+                });
+              },
+              child: Text("Do it!"),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
-    );
+    ));
   }
 }
